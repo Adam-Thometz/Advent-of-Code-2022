@@ -17,7 +17,6 @@ const keyToPlay = {
   Z: 'win'
 }
 
-// key beats value
 const rules = {
   rock: {
     beats: 'scissors',
@@ -39,27 +38,16 @@ const rules = {
 let score = 0;
 
 for (let round of input) {
-  // Initialize total
   let total = 0;
 
-  // Get info about plays
   const [opponent, self] = round.split(' ');
   const opponentPlay = keyToPlay[opponent];
   // selfPlay in Part 1
   const plan = keyToPlay[self];
 
   // Add the value of your play off the bat
-  // Part 1
-  // total += rules[selfPlay].value;
-  // Part 2
-  let selfPlay;
-  if (plan === 'win') {
-    selfPlay = rules[opponentPlay].losesTo;
-  } else if (plan === 'lose') {
-    selfPlay = rules[opponentPlay].beats;
-  } else {
-    selfPlay = opponentPlay;
-  }
+  // Call line 50 in part 2 only
+  const selfPlay = createStrategy(plan, opponentPlay);
   total += rules[selfPlay].value;
   
   // Check if draw
@@ -69,6 +57,12 @@ for (let round of input) {
   if (rules[selfPlay].beats === opponentPlay) total += 6;
 
   score += total;
+}
+
+function createStrategy(plan, opponentPlay) {
+  if (plan === 'win') return rules[opponentPlay].losesTo;
+  if (plan === 'lose') return rules[opponentPlay].beats;
+  return opponentPlay;
 }
 
 console.log(score)
