@@ -4,3 +4,5 @@ This repo is where I keep the code for the Advent of Code challenge. I started l
 
 Day 1 Problem: https://adventofcode.com/2022/day/1
 Day 2 Problem: https://adventofcode.com/2022/day/2
+Day 3 Problem: https://adventofcode.com/2022/day/3
+Day 4 Problem: https://adventofcode.com/2022/day/4
